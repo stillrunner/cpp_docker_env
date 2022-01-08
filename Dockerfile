@@ -8,8 +8,4 @@ COPY . /usr/src/myapp
 COPY ./postgresql.conf /etc/postgresql/13/main/postgresql.conf
 COPY ./pg_hba.conf /etc/postgresql/13/main/pg_hba.conf
 
- CMD ["/bin/bash", "-c", "service postgresql restart && c++ psql.cpp -o myapp -I /usr/include/pqxx/ -L /usr/lib -lpq -lpqxx && ./myapp"]
-# RUN ps -ef | grep postgres
-# RUN find /tmp/ -name .s.PGSQL.5432
-#RUN c++ psql.cpp -o myapp -I /usr/include/pqxx/ -L /usr/lib -lpq -lpqxx
-#CMD ["./myapp"]
+CMD ["/bin/bash", "-c", "service postgresql restart && c++ psql.cpp -o myapp -I /usr/include/pqxx/ -L /usr/lib -lpq -lpqxx && ./myapp"]
